@@ -9,7 +9,7 @@ export class BackendConnect {
   validateUserFromDB(data: any) {
     //console.log(data);
     this.http
-      .post('http://localhost:4000/loginvalid', data)
+      .post('https://backend-vulb.onrender.com/loginvalid', data)
       .subscribe((data) => {
         //console.log(data);
         if (data) {
