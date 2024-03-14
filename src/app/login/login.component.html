@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header text-bg-primary">
+      <p>User Login Page</p>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="login(data)" #data="ngForm">
+        UserName:<input
+          type="text"
+          name="uname"
+          required
+          ngModel
+          #un="ngModel"
+        />
+        <div *ngIf="un.invalid && (un.dirty || un.touched)">
+          <p class="errors">Username is required.</p>
+        </div>
+        Password:<input
+          type="password"
+          name="pass"
+          appForbiddenName="pass123"
+          minlength="6"
+          required
+          ngModel
+          #ps="ngModel"
+        />
+        <div *ngIf="ps.invalid && (ps.dirty || ps.touched)">
+          <div *ngIf="ps.errors?.['required']">
+            <p class="errors">Password is required.</p>
+          </div>
+          <div *ngIf="ps.errors?.['forbiddenName']">
+            <p class="errors">Password cant be this.</p>
+          </div>
+          <div *ngIf="ps.errors?.['minlength']">
+            <p class="errors">Password shall be minimum 6 characters.</p>
+          </div>
+        </div>
+        <button [disabled]="data.invalid" class="btn btn-secondary">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

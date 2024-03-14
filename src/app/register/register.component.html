@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header text-bg-primary">
+      <p>Data Driven User Registration Page</p>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="addUser()" [formGroup]="myForm">
+        UserName:<input type="text" formControlName="uname" />
+        <div *ngIf="uname.invalid && (uname.dirty || uname.touched)">
+          <p class="errors">Username is required.</p>
+        </div>
+
+        Password:<input type="password" formControlName="pass" />
+        <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+          <div *ngIf="pass.errors?.['required']">
+            <p class="errors">Password is required.</p>
+          </div>
+          <div *ngIf="pass.errors?.['forbiddenName']">
+            <p class="errors">Password cant be this.</p>
+          </div>
+          <div *ngIf="pass.errors?.['minlength']">
+            <p class="errors">Password shall be minimum 6 characters.</p>
+          </div>
+        </div>
+
+        Email:<input type="text" formControlName="email" />
+        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+          <div *ngIf="email.errors?.['required']">
+            <p class="errors">Email is required.</p>
+          </div>
+          <div *ngIf="email.errors?.['email']">
+            <p class="errors">Email is invalid.</p>
+          </div>
+          <div *ngIf="email.errors?.['emailDomain']">
+            <p class="errors">Email Domain is invalid.</p>
+          </div>
+        </div>
+
+        City:<input type="text" formControlName="city" />
+        <button class="btn btn-secondary">Register</button>
+      </form>
+
+      <br />
+      <button class="btn btn-secondary" (click)="getUser()">
+        Get User Data from DB
+      </button>
+      <br />
+
+      <ul>
+        <li *ngFor="let user of users">
+          {{ user.uname }} {{ user.email }} {{ user.city }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

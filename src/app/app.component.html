@@ -1,0 +1,35 @@
+<div class="container">
+  <p>Navigation App</p>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" routerLink="login"
+        >Login</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" routerLink="register"
+        >Registration</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" routerLink="userdetails"
+        >UserDetails</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        aria-current="page"
+        [routerLink]="['portfolio', 101, 'edit']"
+        >Portfolio</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" routerLink="project"
+        >Project Details</a
+      >
+    </li>
+  </ul>
+</div>
+
+<router-outlet></router-outlet>
