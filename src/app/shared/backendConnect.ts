@@ -29,7 +29,7 @@ export class BackendConnect {
   getUserFromDB() {
     return this.http.get(
       //'https://fir-angular-7e7bf-default-rtdb.firebaseio.co/demo.json' //for error handle test interceptor
-      'http://localhost:4000/loaduser'
+      'https://backend-vulb.onrender.com/loaduser'
     );
   }
 }
