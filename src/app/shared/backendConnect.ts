@@ -22,7 +22,7 @@ export class BackendConnect {
     console.log(data);
     //console.log(data)
     this.http
-      .post('http://localhost:4000/addUser', data)
+      .post('https://backend-vulb.onrender.com/addUser', data)
       .subscribe((data) => console.log(data));
   }
 
